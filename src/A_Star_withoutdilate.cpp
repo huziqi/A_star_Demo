@@ -100,37 +100,38 @@ int main(int argc, char** argv)
 		loop_rate.sleep();
 	}
 	
-	///////////////////////
-	int step=1;
-	int **tem;
-    tem=new int*[height];
-    for(int i=0;i<height;i++)
-    {
-        tem[i]=new int[width];
-    }
-    for(int i=0;i<height;i++)
-    {
-        for(int j=0;j<width;j++)
-        {
-            tem[i][j]=map[i][j];
-        }
-    }
-    for(int i=step;i<height-step;i++)
-    {
-        for(int j=step;j<width-step;j+=step)
-        {
-            if(int(map[i][j])==0)
-            {
-                for(int r=i-step+1;r<i+step-1;r++)
-                {
-                    for(int c=j-step+1;c<j+step-1;c++)
-                    {
-                       tem[r][c]=0;
-                    }
-                }
-            }
-        }
-    }
+    //膨胀
+	//////////////////////
+	// int step=1;
+	// int **tem;
+    // tem=new int*[height];
+    // for(int i=0;i<height;i++)
+    // {
+    //     tem[i]=new int[width];
+    // }
+    // for(int i=0;i<height;i++)
+    // {
+    //     for(int j=0;j<width;j++)
+    //     {
+    //         tem[i][j]=map[i][j];
+    //     }
+    // }
+    // for(int i=step;i<height-step;i++)
+    // {
+    //     for(int j=step;j<width-step;j+=step)
+    //     {
+    //         if(int(map[i][j])==0)
+    //         {
+    //             for(int r=i-step+1;r<i+step-1;r++)
+    //             {
+    //                 for(int c=j-step+1;c<j+step-1;c++)
+    //                 {
+    //                    tem[r][c]=0;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 
 
 	/////////////////////////
@@ -164,7 +165,7 @@ int main(int argc, char** argv)
 		for (int j = 0; j < width; j++)
 		{
 			point* poi=new point;
-			poi->mark = tem[i][j];
+			poi->mark = map[i][j];
 			poi->x = i;
 			poi->y = j;
 			poi->H = abs(i - end->x) + abs(j - end->y);
